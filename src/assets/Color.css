@@ -1,0 +1,8 @@
+:root
+{
+    --hex-red: #F00;
+}
+
+.red {
+    color: var(--hex-red);
+}
