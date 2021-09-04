@@ -1,0 +1,28 @@
+.favorites
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    
+    height: 70%;
+    width: 50%;
+    padding: 0 2rem;
+}
+.container
+{
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+}
+.card
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card i
+{
+    font-size: 72pt;
+}
