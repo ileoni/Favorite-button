@@ -4,7 +4,8 @@ import {
     Route
 } from 'react-router-dom'
 
-import {Home} from '../components/Home'
+import { Home } from '../components/Home'
+import { Favorite } from '../components/Favorite'
 
 const Routes = () => {
     return (
@@ -14,6 +15,11 @@ const Routes = () => {
                     exact
                     path="/"
                     component={Home}
+                />
+                <Route
+                    exact
+                    path="/favorite"
+                    component={Favorite}
                 />
             </Switch>
         </Router>
