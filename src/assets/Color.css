@@ -1,8 +1,38 @@
 :root
 {
     --hex-red: #F00;
+    --hex-yellow: #FF0;
+    --hex-blue: #00F;
+    --hex-green: #0F0;
+    --hex-pink: #FAA;
+    --hex-orange: #AA0;
+    --hex-purple: #A0A;
 }
 
 .red {
     color: var(--hex-red);
+}
+.yellow
+{
+    color: var(--hex-yellow);
+}
+.blue
+{
+    color: var(--hex-blue);
+}
+.green
+{
+    color: var(--hex-green);   
+}
+.pink
+{
+    color: var(--hex-pink);
+}
+.orange
+{
+    color: var(--hex-orange);
+}
+.purple
+{
+    color: var(--hex-purple);
 }
