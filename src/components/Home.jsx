@@ -1,34 +1,18 @@
 import './Home.css'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import {
-    IoMdHeart,
-    IoMdHeartEmpty
-} from 'react-icons/io'
+    useSelector, useDispatch
+} from 'react-redux'
 import {
     Link
 } from 'react-router-dom'
+import { Icons } from './Icons'
+import { isToggleOn } from './favoriteSlice'
 
-const initialState = {
-    list: []
-}
 
 export const Home = () => {
-    const [button, setButton] = useState(initialState)
-    
-    useEffect(() => {
-        setButton([
-            {
-                name: 'heart',
-                color: 'red',
-                sprites: <IoMdHeart/>
-            },
-            {
-                name: 'heartEmpty',
-                color: 'red',
-                sprites: <IoMdHeartEmpty/>
-            },
-        ])
-    }, [])
+    const favorites = useSelector(state => Object.values(state.favorites))
+    const dispath = useDispatch()
 
     return (
         <>  
@@ -38,20 +22,30 @@ export const Home = () => {
                 </h1>
                 <div className="container">
                     {
-                        button.length && (
-                            button.map(({name, color, sprites}, key) => {
-                                return (
-                                    <div className={`card ${color}`} key={key}>
-                                        <span>
-                                            {name}
-                                        </span>
-                                        <i>
-                                            {sprites}
-                                        </i>
-                                    </div>
-                                )
-                            })
-                        )
+                        favorites.map((favorite, key) => {
+                            return (
+                                <div
+                                    className="card"
+                                    key={key}
+                                >
+                                    {
+                                        favorite.toggle && (
+                                                <button
+                                                    className={`btn ${favorite.color}`}
+                                                    onClick={() => dispath(isToggleOn(favorite))}
+                                                >
+                                                    <span>
+                                                        {favorite.name}
+                                                    </span>
+                                                    <i>
+                                                        <Icons type={favorite.icons.after}/>
+                                                    </i>
+                                                </button>
+                                        )
+                                    }
+                                </div>
+                            )
+                        })
                     }
                 </div>
             </div>

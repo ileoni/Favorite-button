@@ -2,7 +2,7 @@ import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = [
     { 
-        id: 1, toggle: false, name: 'Favorite', color: 'red', icons: { before: 'MdFavoriteBorder', after: 'MdFavorite'}
+        id: 1, toggle: true, name: 'Favorite', color: 'red', icons: { before: 'MdFavoriteBorder', after: 'MdFavorite'}
     },{ 
         id: 2, toggle: false, name: 'Star', color: 'yellow', icons: { before: 'MdStarBorder', after: 'MdStar' }
     },{ 
@@ -24,7 +24,7 @@ export const favoriteSlice = createSlice({
     reducers: {
         isToggleOn(state, {payload: {id, toggle}})
         {
-            state.filter(icon => icon.id === id && ( icon.toggle = toggle ? false: true))
+            Object.values(state).filter(icon => icon.id === id && ( icon.toggle = toggle ? false: true))
         }
     }
 })
